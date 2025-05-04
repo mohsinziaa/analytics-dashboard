@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SheetJS library for Excel file handling -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chart-line"></i> Data Analytics Dashboard</h1>
+            <p class="subtitle">Upload your Excel file to analyze and visualize your data</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="file-input-container">
+                <label for="fileInput" class="file-input-label">
+                    <i class="fas fa-file-excel"></i>
+                    <span>Choose Excel File</span>
+                </label>
+                <input type="file" id="fileInput" accept=".xlsx, .xls" />
+            </div>
+            <div class="file-info" id="fileInfo"></div>
+        </div>
+
+        <div class="controls">
+            <button id="toggleViewBtn" class="toggle-btn" disabled>
+                <i class="fas fa-table"></i> Show Table
+            </button>
+        </div>
+
+        <div id="excelData" class="data-container"></div>
+        
+        <div class="charts-container" id="chartsContainer" style="display: none;">
+            <div class="chart-section">
+                <h2><i class="fas fa-users"></i> Customer Analytics</h2>
+                <div class="chart-wrapper">
+                    <canvas id="customerChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-section">
+                <h2><i class="fas fa-store"></i> Trade Distribution</h2>
+                <div class="chart-wrapper">
+                    <canvas id="tradeChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-section">
+                <h2><i class="fas fa-calendar-alt"></i> Daily Visit Trends</h2>
+                <div class="chart-wrapper">
+                    <canvas id="dailyTrendChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-section">
+                <h2><i class="fas fa-boxes"></i> Pallet Availability</h2>
+                <div class="chart-wrapper">
+                    <canvas id="palletChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
